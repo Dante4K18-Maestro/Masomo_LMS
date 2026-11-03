@@ -1,0 +1,201 @@
+@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/space-grotesk";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f7f9fc;
+  --foreground: #0b1729;
+  --muted: #64748b;
+  --line: #e2e8f1;
+  --electric: #3678f6;
+  --lime: #c7f45a;
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #c7f45a;
+  color: #07111f;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-7 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] font-semibold uppercase tracking-[0.18em];
+  }
+
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2;
+  }
+
+  .card {
+    @apply rounded-2xl border border-mist-200 bg-white shadow-soft;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-mist-300 bg-white px-3.5 py-2.5 text-sm text-ink-900 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-electric-400 focus:ring-4 focus:ring-electric-100 disabled:cursor-not-allowed disabled:bg-mist-50 disabled:text-slate-400;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[13px] font-semibold text-ink-800;
+  }
+
+  .help-text {
+    @apply mt-1.5 text-xs leading-relaxed text-slate-500;
+  }
+
+  .table-wrap {
+    @apply overflow-x-auto;
+  }
+
+  .data-table {
+    @apply w-full min-w-[640px] border-collapse text-left text-sm;
+  }
+
+  .data-table thead th {
+    @apply border-b border-mist-200 bg-mist-50/70 px-4 py-3 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500;
+  }
+
+  .data-table tbody td {
+    @apply border-b border-mist-100 px-4 py-3.5 align-middle text-slate-600;
+  }
+
+  .data-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .data-table tbody tr {
+    @apply transition-colors hover:bg-mist-50/60;
+  }
+
+  .prose-lesson {
+    @apply text-[15.5px] leading-7 text-slate-600;
+  }
+
+  .prose-lesson > *:first-child {
+    @apply mt-0;
+  }
+
+  .prose-lesson h2 {
+    @apply mb-3 mt-9 font-display text-[26px] font-semibold leading-tight tracking-[-0.02em] text-ink-900;
+  }
+
+  .prose-lesson h3 {
+    @apply mb-2 mt-7 font-display text-lg font-semibold text-ink-900;
+  }
+
+  .prose-lesson p {
+    @apply my-4;
+  }
+
+  .prose-lesson strong {
+    @apply font-semibold text-ink-800;
+  }
+
+  .prose-lesson a {
+    @apply font-semibold text-electric-600 underline decoration-electric-200 underline-offset-2 hover:decoration-electric-500;
+  }
+
+  .prose-lesson ul {
+    @apply my-4 list-disc space-y-2 pl-5 marker:text-electric-400;
+  }
+
+  .prose-lesson ol {
+    @apply my-4 list-decimal space-y-2 pl-5 marker:font-semibold marker:text-ink-500;
+  }
+
+  .prose-lesson blockquote {
+    @apply my-6 rounded-r-xl border-l-4 border-lime-400 bg-lime-50/70 px-5 py-4 text-[14.5px] leading-7 text-ink-700;
+  }
+
+  .prose-lesson blockquote p {
+    @apply my-0;
+  }
+
+  .prose-lesson code {
+    @apply rounded-md border border-mist-200 bg-mist-100 px-1.5 py-0.5 font-mono text-[0.86em] font-medium text-ink-800;
+  }
+
+  .prose-lesson pre {
+    @apply my-6 overflow-x-auto rounded-2xl bg-ink-950 p-5 text-[13px] leading-6 text-slate-200 shadow-soft;
+  }
+
+  .prose-lesson pre code {
+    @apply border-0 bg-transparent p-0 text-inherit;
+  }
+
+  .prose-lesson table {
+    @apply my-6 w-full border-collapse overflow-hidden rounded-xl text-sm;
+  }
+
+  .prose-lesson th {
+    @apply border border-mist-200 bg-mist-50 px-3 py-2 text-left font-semibold text-ink-800;
+  }
+
+  .prose-lesson td {
+    @apply border border-mist-200 px-3 py-2;
+  }
+
+  .prose-lesson hr {
+    @apply my-8 border-mist-200;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border: 3px solid #f7f9fc;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
